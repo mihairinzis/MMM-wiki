@@ -19,21 +19,21 @@ copy this to your config.js
 /* 		config: {
 			updateInterval: 30000,
 			language: "en",
-      characterLimit: 500,
+      			characterLimit: 500,
 			badTitles: [
 			"Graphical",
 			"timeline",
-      "List"
+	   	   	"List"
 			],
 			badContents: [
 			"This article",
-      "See also",
+	      		"See also",
 			"redirects here",
 			"The following outline",
 			"may refer to"
-      ],
-	}, remove /* and */ if you want to uncomment this block and set a different config.
-}, */ 
+      			],
+		}, remove /* and */ if you want to uncomment this block and set a different config.
+	}, */ 
   ]
 ```
 
