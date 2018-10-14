@@ -10,6 +10,33 @@ git clone https://github.com/mihairinzis/MMM-wiki
 ```
 * Add it to the modules array in the `config/config.js` file.
 
+copy this to your config.js
+```
+"modules": [		
+	{
+	module: "MMM-wiki",
+		position: "bottom",
+/* 		config: {
+			updateInterval: 30000,
+			language: "en",
+      			characterLimit: 500,
+			badTitles: [
+			"Graphical",
+			"timeline",
+	   	   	"List"
+			],
+			badContents: [
+			"This article",
+	      		"See also",
+			"redirects here",
+			"The following outline",
+			"may refer to"
+      			],
+		}, remove /* and */ if you want to uncomment this block and set a different config.
+	}, */ 
+  ]
+```
+
 ## Configuration options
 
 The following properties can be configured:
