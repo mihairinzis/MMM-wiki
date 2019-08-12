@@ -12,29 +12,28 @@ git clone https://github.com/mihairinzis/MMM-wiki
 
 copy this to your config.js
 ```
-"modules": [		
-	{
-	module: "MMM-wiki",
-		position: "bottom",
-/* 		config: {
-			updateInterval: 30000,
-			language: "en",
-      			characterLimit: 500,
-			badTitles: [
-			"Graphical",
-			"timeline",
-	   	   	"List"
-			],
-			badContents: [
-			"This article",
-	      		"See also",
-			"redirects here",
-			"The following outline",
-			"may refer to"
-      			],
-		}, remove /* and */ if you want to uncomment this block and set a different config.
-	}, */ 
-  ]
+"modules": [{
+    module: "MMM-wiki",
+    position: "bottom",
+    config: {
+        updateInterval: 30000,
+        language: "en",
+        characterLimit: 500,
+        category: "DidYouKnow",
+        badTitles: [
+            "Graphical",
+            "timeline",
+            "List"
+        ],
+        badContents: [
+            "This article",
+            "See also",
+            "redirects here",
+            "The following outline",
+            "may refer to"
+        ],
+    }
+}]
 ```
 
 ## Configuration options
@@ -46,5 +45,6 @@ The following properties can be configured:
 | `updateInterval` | How often do the articles change? (Milliseconds) **Default value:** `30000`.
 | `language` | The language of the articles. **Default value:** `en`.
 | `characterLimit` | The maximum number of characters that will be displayed. **Default value:** `500`.
+| `category`       | If category is set to "DidYouKnow" then the module will show random 'did you know?' items from Wikipedia. Otherwise it will show random articles. Currently `did you know?` only works for the English language. **Default value:** `undefined`.
 | `badTitles` | Articles with the given keywords in the title will be omitted. **Default value:** [`Graphical`, `timeline`, `List`].
 | `badContents` | Articles with the given keywords in the content will be omitted. **Default value:** [`This article`, `See also`, `redirects here`, `The following outline`, `may refer to`].
