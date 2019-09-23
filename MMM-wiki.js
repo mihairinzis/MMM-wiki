@@ -15,7 +15,9 @@ Module.register("MMM-wiki",{
             "redirects here",
             "The following outline",
             "may refer to"
-        ]
+        ],
+        maxWidth: '50%',
+        margin = '0 auto'
     },
 
     availableArticles: [],
@@ -92,17 +94,14 @@ Module.register("MMM-wiki",{
             return [];
         }
         for (let pageid in json.query.pages) {
-            const jsonItems = this.get(() => json.query.pages[pageid].revisions['0']['slots']['main']['*']);
+            const jsonItems = this.get(() => json.query.pages[pageid].extract);
             if (!jsonItems) {
                 break;
             }
             return jsonItems
                 .match(/\.\.\. .*?\?/g)
                 .map(item => item
-                     .replace(/\.\.\./g, 'Did you know') // replace ... with Did you know
-                     .replace(/\|.*\]\]/g, '') // remove markdown refs
-                     .replace(/\'/g, '') // remove quotes
-                     .replace(/\[\[|\]\]/g, '') // remove square brackets
+                     .replace(/^\.\.\./g, 'Did you know') // replace ... with Did you know at the beginning
                      .replace('(pictured)', '')) // remove pictured
                 .filter(item => item.length > 0)
                 .map(item => ({
@@ -143,11 +142,11 @@ Module.register("MMM-wiki",{
                             "July", "August", "September", "October", "November", "December" ];
         const randomMonth = monthNames[Math.floor(Math.random() * monthNames.length)];
         const currentYear = new Date().getFullYear();
-        const randomYear = Math.floor(Math.random() * (currentYear - 2014 + 1) + 2014);
+        const randomYear = Math.floor(Math.random() * (currentYear - 2005 + 1) + 2005);
         const params = {
             format: 'json',
             action: 'query',
-            prop: 'revisions',
+            prop: 'extracts',
             rvprop: 'content',
             rvslots: '*',
             titles:'Wikipedia:Recent additions/' + randomYear + '/' + randomMonth,
@@ -183,6 +182,9 @@ Module.register("MMM-wiki",{
         var wrapper = document.createElement("div");
         article.views++;
         wrapper.innerHTML = article.content;
+        wrapper.className = "wrapper";
+        wrapper.style.maxWidth = this.config.maxWidth;
+        wrapper.style.margin = this.config.margin;
         return wrapper;
     },
 
