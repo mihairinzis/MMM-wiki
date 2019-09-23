@@ -17,7 +17,7 @@ Module.register("MMM-wiki",{
             "may refer to"
         ],
         maxWidth: '50%',
-        margin = '0 auto'
+        margin: '0 auto'
     },
 
     availableArticles: [],
