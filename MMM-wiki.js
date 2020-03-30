@@ -17,7 +17,9 @@ Module.register("MMM-wiki",{
             "may refer to"
         ],
         maxWidth: '50%',
-        margin: '0 auto'
+        margin: '0 auto',
+	fontSize: '24px',
+	lineHeight: '24px'
     },
 
     availableArticles: [],
@@ -185,6 +187,8 @@ Module.register("MMM-wiki",{
         wrapper.className = "wrapper";
         wrapper.style.maxWidth = this.config.maxWidth;
         wrapper.style.margin = this.config.margin;
+        wrapper.style.fontSize= this.config.fontSize;
+        wrapper.style.lineHeight= this.config.lineHeight;
         return wrapper;
     },
 
